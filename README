@@ -1,0 +1,10 @@
+This is a (future) ruby-javascript for packing up javascript packages in mootools style.
+
+Currently it holds examples of how it should work, to be translated into specs for implementation.
+
+Conventions: 
+  - All packages are located in a single directory (it's app/javascripts for all of the examples)
+  - Package directory name is meaningless. The name is taken from package.yml
+  - Every file should have mootools-style header with provides & requires sections.
+  
+If a bundler is run with --with-dependencies option, then output directory is public/javascripts/packagename/Compiled instead of ./Source
