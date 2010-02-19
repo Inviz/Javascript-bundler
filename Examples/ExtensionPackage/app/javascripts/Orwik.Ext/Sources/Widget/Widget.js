@@ -1,0 +1,7 @@
+/*
+---
+ 
+provides: [Widget.Valued]
+ 
+...
+*/
