@@ -1,0 +1,27 @@
+SUMMARY:
+  Example of one package extending another. 
+
+LOGIC:
+  Files get appended, require and provide statements are merged.
+  Extension package is only compiled to tree.json (makes sense, because no separate files are generated). 
+  
+SYNTAX:
+  bundle Orwik -i app/javascripts/ -o public/javascripts --with-extensions
+  #=> [public/javascripts/Orwik/Source/orwik.js, public/javascripts/Orwik/Source/scripts.js, public/javascripts/Orwik/Source/tree.js]
+
+
+UNRESOLVED ISSUES: (do not read, unless you get all other examples, because you may get confused)
+  Even if we have tree.json of extension package, how will the clientside know about the package itself to get the file? Should we leave an "extensions"
+  directive in scripts.json of extendee?
+
+  Two possible solutions 
+  1) Change the format tree.json back to have Package/Folder/File structure instead of Folder/File (as it is now).
+     This way, we can make one tree.json contain information about files from other packages. Usually, it doesnt worth it,
+     but here, we still have to keep information about files from Orwik.Ext somewhere.
+     
+  2) Another way is to keep the Source folder as it is now, but make another directory named Compiled and do everything that is said above
+     there. There is another example of using Compiled directory in OutsideDependencies example.
+     
+  3) Third way is to rely soloely on a large compiled tree.json that contains information about every package used 
+     (something like compiled/scripts.json on current implementation of builder on Orwik). But then we'll have to avoid merging tree.json of
+     extend package into extendee and keep them separated. Maybe, the easiest way.

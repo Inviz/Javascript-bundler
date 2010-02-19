@@ -1,0 +1,21 @@
+{
+  "Library": {
+    "Inflections": {
+      "desc": "...",
+      "provides": ["Inflections"]
+    }
+  },
+  
+  "Widget": {
+    "Input": {
+      "Input": {
+        "desc": "...",
+        "requires": ["Inflections"]
+      }
+    },
+    "Widget": {
+      "desc": "...",
+      "provides": ["Widget.Valued"]
+    }
+  }
+}
